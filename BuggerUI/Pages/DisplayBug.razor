@@ -1,0 +1,74 @@
+﻿@page "/Data/DisplayBug"
+
+@inject IBugService _bugData
+
+<div class="bg-gray-100 grid">
+    <div class="max-w-6xl px-8 py-12 w-full mx-auto">
+        <h1 class="text-indigo-500 text-3xl text-center p-8">Bugs</h1>
+        <div class="flex flex-row justify-center items-center gap-4">
+            <h4 class="text-gray-900 text-xl text-center ">Insert New Bug</h4>
+            <EditForm Model="@newBug" OnValidSubmit="@InsertBugData">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+
+                <InputText id="bugTitle" @bind-Value="newBug.BugTitle" class="border-2" />
+                <InputText id="bugDescription" @bind-Value="newBug.BugDescription" class="border-2" />
+                <InputCheckbox id="bugIsComplete" @bind-Value="newBug.BugCompleted" />
+
+                <button type="submit" class="rounded-md shadow-md px-2 py-2 bg-indigo-500 text-white uppercase text-base font-bold">Submit</button>
+            </EditForm>
+        </div>
+
+        @if (bugs is null)
+        {
+            <p>Loading...</p>
+        }
+        else
+        {
+            <div class="py-6">
+                <h4 class="text-gray-900 text-2xl py-6">Current Bugs</h4>
+                <div class="grid gap-6">
+                    @foreach (var item in bugs)
+                    {
+                        <BugCard BugID="@item.BugID"
+                                 BugTitle="@item.BugTitle"
+                                 BugCompleted="@item.BugCompleted"
+                                 BugDescription="@item.BugDescription" />
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    private List<BugModel> bugs;
+    private DisplayBugModel newBug = new DisplayBugModel();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetBugs();
+    }
+
+    private async Task InsertBugData()
+    {
+        BugModel bug = new BugModel
+        {
+            BugTitle = newBug.BugTitle,
+            BugDescription = newBug.BugDescription,
+            BugCompleted = newBug.BugCompleted
+        };
+
+        await _bugData.InsertBug(bug);
+
+        await GetBugs();
+
+        newBug = new DisplayBugModel();
+    }
+
+    private async Task GetBugs()
+    {
+        IEnumerable<BugModel> bugsEnumerable = await _bugData.SelectAllBugs();
+        bugs = bugsEnumerable.ToList();
+    }
+}

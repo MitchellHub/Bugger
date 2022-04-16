@@ -1,0 +1,12 @@
+D:\Projects\C#\Bugger\DataAccessLibrary\bin\Debug\net5.0\DataAccessLibrary.deps.json
+D:\Projects\C#\Bugger\DataAccessLibrary\bin\Debug\net5.0\DataAccessLibrary.dll
+D:\Projects\C#\Bugger\DataAccessLibrary\bin\Debug\net5.0\DataAccessLibrary.pdb
+D:\Projects\C#\Bugger\DataAccessLibrary\obj\Debug\net5.0\DataAccessLibrary.csproj.AssemblyReference.cache
+D:\Projects\C#\Bugger\DataAccessLibrary\obj\Debug\net5.0\DataAccessLibrary.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\C#\Bugger\DataAccessLibrary\obj\Debug\net5.0\DataAccessLibrary.AssemblyInfoInputs.cache
+D:\Projects\C#\Bugger\DataAccessLibrary\obj\Debug\net5.0\DataAccessLibrary.AssemblyInfo.cs
+D:\Projects\C#\Bugger\DataAccessLibrary\obj\Debug\net5.0\DataAccessLibrary.csproj.CoreCompileInputs.cache
+D:\Projects\C#\Bugger\DataAccessLibrary\obj\Debug\net5.0\DataAccessLibrary.dll
+D:\Projects\C#\Bugger\DataAccessLibrary\obj\Debug\net5.0\ref\DataAccessLibrary.dll
+D:\Projects\C#\Bugger\DataAccessLibrary\obj\Debug\net5.0\DataAccessLibrary.pdb
+D:\Projects\C#\Bugger\DataAccessLibrary\obj\Debug\net5.0\refint\DataAccessLibrary.dll

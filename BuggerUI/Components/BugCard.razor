@@ -1,0 +1,21 @@
+﻿<div class="flex items-center rounded-lg bg-white shadow-lg overflow-hidden">
+    <div class="px-6 py-4">
+        <h3 class="text-lg font-semibold text-gray-800">@BugTitle</h3>
+        <p class="text-gray-600">@BugDescription</p>
+        <div class="">
+            <a class="text-brand font-semibold text-sm
+                hover:text-brand-light"
+                herf="">@ProjectID @BugID</a>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    [Parameter] public int BugID { get; set; }
+    [Parameter] public int UserID { get; set; }
+    [Parameter] public int ProjectID { get; set; }
+    [Parameter] public string BugTitle { get; set; }
+    [Parameter] public string BugDescription { get; set; }
+    [Parameter] public bool BugCompleted { get; set; }
+}

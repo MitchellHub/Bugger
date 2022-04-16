@@ -1,0 +1,23 @@
+﻿<div class="flex items-center rounded-lg bg-white shadow-lg overflow-hidden">
+    <img class="h-32 w-32 flex-grow-0"
+         src="/img/colorado.jpg" 
+         alt="@alternateText" />
+    <div class="px-6 py-4">
+        <h3 class="text-lg font-semibold text-gray-800">@cityName</h3>
+
+        <p class="text-gray-600">$@averagePrice / night average</p>
+        <div class="mt-4">
+            <a class="text-brand font-semibold text-sm cursor-pointer
+               hover:text-brand-light"
+               href="#">Explore @numberOfProperties properties</a>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string alternateText { get; set; }
+    [Parameter] public string cityName { get; set; }
+    [Parameter] public string description { get; set; }
+    [Parameter] public decimal averagePrice { get; set; }
+    [Parameter] public int numberOfProperties { get; set; }
+}

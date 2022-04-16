@@ -1,0 +1,57 @@
+﻿@page "/Data/DisplayBugByID"
+
+@inject IBugService _bugData
+
+<div class="grid">
+    <div class="w-full mx-auto max-w-6xl px-8 py-24">
+        <h3>DisplayBugByID</h3>
+        <div>
+            <input @bind-value="bugID" />
+            <button @onclick="@SearchBug" class="rounded-md shadow-md px-2 py-2 bg-indigo-500 text-white uppercase text-base font-bold">Search</button>
+            <p>@bugID</p>
+
+            @if (bug is null)
+            {
+                <p>No bugs to show..</p>
+            }
+            else
+            {
+                <div class="py-6">
+                    <h4 class="text-gray-900 text-2xl py-6">Current Bugs</h4>
+                    <div class="grid gap-6">
+                        <BugCard BugID="@bug.BugID"
+                                 BugTitle="@bug.BugTitle"
+                                 BugCompleted="@bug.BugCompleted"
+                                 BugDescription="@bug.BugDescription" />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@code {
+    int bugID;
+    private DisplayBugModel bug;
+
+    private async Task SearchBug()
+    {
+        Console.WriteLine("bugID: " + bugID);
+        BugModel dataBug = await _bugData.SelectBugByID(bugID);
+
+        if (dataBug != null)
+        {
+            bug = new DisplayBugModel {
+                BugTitle = dataBug.BugTitle,
+                BugDescription = dataBug.BugDescription,
+                BugCompleted = dataBug.BugCompleted
+            };
+        }
+        else
+        {
+            bug = null;
+        }
+
+    }
+}
