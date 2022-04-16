@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace BuggerUI.Components
+namespace BuggerUI.Features.Workcation.Components
 {
     #line hidden
     using System;
@@ -125,7 +125,7 @@ using DataAccessLibrary.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 17 "D:\Projects\C#\Bugger\BuggerUI\Components\CardLocation.razor"
+#line 17 "D:\Projects\C#\Bugger\BuggerUI\Features\Workcation\Components\CardLocation.razor"
        
     [Parameter] public string alternateText { get; set; }
     [Parameter] public string cityName { get; set; }

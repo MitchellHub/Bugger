@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace BuggerUI.Pages
+namespace BuggerUI.Features
 {
     #line hidden
     using System;
@@ -117,14 +117,43 @@ using DataAccessLibrary.Models;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/")]
-    public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Workcation")]
+    public partial class Workcation : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 72 "D:\Projects\C#\Bugger\BuggerUI\Features\Workcation.razor"
+       
+    private List<Location> cardLocations;
+
+    protected override void OnInitialized()
+    {
+        GetLocations();
+    }
+
+    private void GetLocations()
+    {
+        cardLocations = new List<Location>
+        {
+            new Location { alternateText = "A picture of Colarado", averagePrice = 500.00M, cityName = "Colarado", description = "Colarado is awesome!", numberOfProperties = 20 },
+            new Location { alternateText = "A picture of Sydney", averagePrice = 900.00M, cityName = "Sydney", description = "Sydney is awesome!", numberOfProperties = 50 },
+            new Location { alternateText = "A picture of Brisbane", averagePrice = 450.00M, cityName = "Brisbane", description = "Brisbane is awesome!", numberOfProperties = 40 },
+            new Location { alternateText = "A picture of Brisbane", averagePrice = 450.00M, cityName = "Brisbane", description = "Brisbane is awesome!", numberOfProperties = 40 },
+            new Location { alternateText = "A picture of Brisbane", averagePrice = 450.00M, cityName = "Brisbane", description = "Brisbane is awesome!", numberOfProperties = 40 },
+            new Location { alternateText = "A picture of Brisbane", averagePrice = 450.00M, cityName = "Brisbane", description = "Brisbane is awesome!", numberOfProperties = 40 },
+            new Location { alternateText = "A picture of Brisbane", averagePrice = 450.00M, cityName = "Brisbane", description = "Brisbane is awesome!", numberOfProperties = 40 },
+            new Location { alternateText = "A picture of Brisbane", averagePrice = 450.00M, cityName = "Brisbane", description = "Brisbane is awesome!", numberOfProperties = 40 },
+            new Location { alternateText = "A picture of Brisbane", averagePrice = 450.00M, cityName = "Brisbane", description = "Brisbane is awesome!", numberOfProperties = 40 },
+        };
+    }
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591

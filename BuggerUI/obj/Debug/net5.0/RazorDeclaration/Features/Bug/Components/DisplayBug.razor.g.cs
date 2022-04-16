@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace BuggerUI.Pages
+namespace BuggerUI.Features.Bug.Components
 {
     #line hidden
     using System;
@@ -117,8 +117,8 @@ using DataAccessLibrary.Models;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Data/DisplayBugByID")]
-    public partial class DIsplayBugByID : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Data/DisplayBug")]
+    public partial class DisplayBug : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -126,29 +126,36 @@ using DataAccessLibrary.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 34 "D:\Projects\C#\Bugger\BuggerUI\Pages\DIsplayBugByID.razor"
+#line 44 "D:\Projects\C#\Bugger\BuggerUI\Features\Bug\Components\DisplayBug.razor"
        
-    int bugID;
-    private DisplayBugModel bug;
+    private List<BugModel> bugs;
+    private DisplayBugModel newBug = new DisplayBugModel();
 
-    private async Task SearchBug()
+    protected override async Task OnInitializedAsync()
     {
-        Console.WriteLine("bugID: " + bugID);
-        BugModel dataBug = await _bugData.SelectBugByID(bugID);
+        await GetBugs();
+    }
 
-        if (dataBug != null)
+    private async Task InsertBugData()
+    {
+        BugModel bug = new BugModel
         {
-            bug = new DisplayBugModel {
-                BugTitle = dataBug.BugTitle,
-                BugDescription = dataBug.BugDescription,
-                BugCompleted = dataBug.BugCompleted
-            };
-        }
-        else
-        {
-            bug = null;
-        }
+            BugTitle = newBug.BugTitle,
+            BugDescription = newBug.BugDescription,
+            BugCompleted = newBug.BugCompleted
+        };
 
+        await _bugData.InsertBug(bug);
+
+        await GetBugs();
+
+        newBug = new DisplayBugModel();
+    }
+
+    private async Task GetBugs()
+    {
+        IEnumerable<BugModel> bugsEnumerable = await _bugData.SelectAllBugs();
+        bugs = bugsEnumerable.ToList();
     }
 
 #line default

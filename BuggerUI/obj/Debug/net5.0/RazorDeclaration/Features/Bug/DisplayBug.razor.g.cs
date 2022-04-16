@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace BuggerUI.Pages
+namespace BuggerUI.Features.Bug
 {
     #line hidden
     using System;
@@ -117,8 +117,8 @@ using DataAccessLibrary.Models;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Workcation")]
-    public partial class Workcation : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Data/DisplayBug")]
+    public partial class DisplayBug : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -126,34 +126,42 @@ using DataAccessLibrary.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 72 "D:\Projects\C#\Bugger\BuggerUI\Pages\Workcation.razor"
+#line 44 "D:\Projects\C#\Bugger\BuggerUI\Features\Bug\DisplayBug.razor"
        
-    private List<Location> cardLocations;
+    private List<BugModel> bugs;
+    private DisplayBugModel newBug = new DisplayBugModel();
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        GetLocations();
+        await GetBugs();
     }
 
-    private void GetLocations()
+    private async Task InsertBugData()
     {
-        cardLocations = new List<Location>
+        BugModel bug = new BugModel
         {
-            new Location { alternateText = "A picture of Colarado", averagePrice = 500.00M, cityName = "Colarado", description = "Colarado is awesome!", numberOfProperties = 20 },
-            new Location { alternateText = "A picture of Sydney", averagePrice = 900.00M, cityName = "Sydney", description = "Sydney is awesome!", numberOfProperties = 50 },
-            new Location { alternateText = "A picture of Brisbane", averagePrice = 450.00M, cityName = "Brisbane", description = "Brisbane is awesome!", numberOfProperties = 40 },
-            new Location { alternateText = "A picture of Brisbane", averagePrice = 450.00M, cityName = "Brisbane", description = "Brisbane is awesome!", numberOfProperties = 40 },
-            new Location { alternateText = "A picture of Brisbane", averagePrice = 450.00M, cityName = "Brisbane", description = "Brisbane is awesome!", numberOfProperties = 40 },
-            new Location { alternateText = "A picture of Brisbane", averagePrice = 450.00M, cityName = "Brisbane", description = "Brisbane is awesome!", numberOfProperties = 40 },
-            new Location { alternateText = "A picture of Brisbane", averagePrice = 450.00M, cityName = "Brisbane", description = "Brisbane is awesome!", numberOfProperties = 40 },
-            new Location { alternateText = "A picture of Brisbane", averagePrice = 450.00M, cityName = "Brisbane", description = "Brisbane is awesome!", numberOfProperties = 40 },
-            new Location { alternateText = "A picture of Brisbane", averagePrice = 450.00M, cityName = "Brisbane", description = "Brisbane is awesome!", numberOfProperties = 40 },
+            BugTitle = newBug.BugTitle,
+            BugDescription = newBug.BugDescription,
+            BugCompleted = newBug.BugCompleted
         };
+
+        await _bugData.InsertBug(bug);
+
+        await GetBugs();
+
+        newBug = new DisplayBugModel();
+    }
+
+    private async Task GetBugs()
+    {
+        IEnumerable<BugModel> bugsEnumerable = await _bugData.SelectAllBugs();
+        bugs = bugsEnumerable.ToList();
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IBugService _bugData { get; set; }
     }
 }
 #pragma warning restore 1591
