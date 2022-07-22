@@ -81,69 +81,34 @@ using BuggerUI;
 #nullable disable
 #nullable restore
 #line 11 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
-using BuggerUI.Pages;
+using BuggerUI.Components;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 12 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
-using BuggerUI.Features;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 13 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
-using BuggerUI.Features.Bug;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 14 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
-using BuggerUI.Features.Bug.Components;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 15 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
-using BuggerUI.Features.Workcation;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 16 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
-using BuggerUI.Features.Workcation.Components;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 17 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
 using BuggerUI.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 18 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
+#line 13 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
 using BuggerUI.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 19 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
+#line 14 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
 using DataAccessLibrary;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 20 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
+#line 15 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
 using DataAccessLibrary.Models;
 
 #line default
@@ -174,29 +139,25 @@ using DataAccessLibrary.Models;
             __builder.AddAttribute(8, "class", "px-6 py-4");
             __builder.OpenElement(9, "h3");
             __builder.AddAttribute(10, "class", "text-lg font-semibold text-gray-800");
-            __builder.AddContent(11, 
 #nullable restore
 #line 6 "D:\Projects\C#\Bugger\BuggerUI\Features\Workcation\Components\CardLocation.razor"
-                                                         cityName
+__builder.AddContent(11, cityName);
 
 #line default
 #line hidden
 #nullable disable
-            );
             __builder.CloseElement();
             __builder.AddMarkupContent(12, "\r\n\r\n        ");
             __builder.OpenElement(13, "p");
             __builder.AddAttribute(14, "class", "text-gray-600");
             __builder.AddContent(15, "$");
-            __builder.AddContent(16, 
 #nullable restore
 #line 8 "D:\Projects\C#\Bugger\BuggerUI\Features\Workcation\Components\CardLocation.razor"
-                                   averagePrice
+__builder.AddContent(16, averagePrice);
 
 #line default
 #line hidden
 #nullable disable
-            );
             __builder.AddContent(17, " / night average");
             __builder.CloseElement();
             __builder.AddMarkupContent(18, "\r\n        ");
@@ -206,15 +167,13 @@ using DataAccessLibrary.Models;
             __builder.AddAttribute(22, "class", "text-brand font-semibold text-sm cursor-pointer\r\n               hover:text-brand-light");
             __builder.AddAttribute(23, "href", "#");
             __builder.AddContent(24, "Explore ");
-            __builder.AddContent(25, 
 #nullable restore
 #line 12 "D:\Projects\C#\Bugger\BuggerUI\Features\Workcation\Components\CardLocation.razor"
-                                 numberOfProperties
+__builder.AddContent(25, numberOfProperties);
 
 #line default
 #line hidden
 #nullable disable
-            );
             __builder.AddContent(26, " properties");
             __builder.CloseElement();
             __builder.CloseElement();

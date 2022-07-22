@@ -8,11 +8,11 @@ namespace BuggerUI.Models
 {
     public class DisplayBugModel
     {
-        public int BugId { get; set; }
+        public int BugID { get; set; }
 
-        public int UserId { get; set; }
+        public int UserID { get; set; }
 
-        public int ProjectId { get; set; }
+        public int ProjectID { get; set; }
 
         [Required]
         [StringLength(50, ErrorMessage = "Bug Subject is too long.")]

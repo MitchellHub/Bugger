@@ -6,10 +6,8 @@ namespace DataAccessLibrary
 {
     public interface IBugService
     {
-        Task InsertBug(BugModel bug);
         Task<IEnumerable<BugModel>> SelectAllBugs();
-        Task<IEnumerable<BugModel>> spSelectAllBugs();
-        //Task<BugModel> SelectBugByID(int id);
-        Task<BugModel> spSelect(int id);
+        Task<BugModel> SelectBugByID(int id);
+        Task InsertBug(BugModel bug);
     }
 }

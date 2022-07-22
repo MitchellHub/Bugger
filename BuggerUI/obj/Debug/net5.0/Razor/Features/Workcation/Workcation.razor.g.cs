@@ -81,69 +81,34 @@ using BuggerUI;
 #nullable disable
 #nullable restore
 #line 11 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
-using BuggerUI.Pages;
+using BuggerUI.Components;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 12 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
-using BuggerUI.Features;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 13 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
-using BuggerUI.Features.Bug;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 14 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
-using BuggerUI.Features.Bug.Components;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 15 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
-using BuggerUI.Features.Workcation;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 16 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
-using BuggerUI.Features.Workcation.Components;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 17 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
 using BuggerUI.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 18 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
+#line 13 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
 using BuggerUI.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 19 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
+#line 14 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
 using DataAccessLibrary;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 20 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
+#line 15 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
 using DataAccessLibrary.Models;
 
 #line default
@@ -172,8 +137,8 @@ using DataAccessLibrary.Models;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenComponent<BuggerUI.Features.Workcation.Components.CardLocation>(9);
-            __builder.AddAttribute(10, "alternateText", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+            __builder.OpenElement(9, "CardLocation");
+            __builder.AddAttribute(10, "alternateText", 
 #nullable restore
 #line 63 "D:\Projects\C#\Bugger\BuggerUI\Features\Workcation\Workcation.razor"
                                           location.alternateText
@@ -181,8 +146,8 @@ using DataAccessLibrary.Models;
 #line default
 #line hidden
 #nullable disable
-            ));
-            __builder.AddAttribute(11, "averagePrice", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Decimal>(
+            );
+            __builder.AddAttribute(11, "averagePrice", 
 #nullable restore
 #line 64 "D:\Projects\C#\Bugger\BuggerUI\Features\Workcation\Workcation.razor"
                                          location.averagePrice
@@ -190,8 +155,8 @@ using DataAccessLibrary.Models;
 #line default
 #line hidden
 #nullable disable
-            ));
-            __builder.AddAttribute(12, "cityName", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+            );
+            __builder.AddAttribute(12, "cityName", 
 #nullable restore
 #line 65 "D:\Projects\C#\Bugger\BuggerUI\Features\Workcation\Workcation.razor"
                                      location.cityName
@@ -199,8 +164,8 @@ using DataAccessLibrary.Models;
 #line default
 #line hidden
 #nullable disable
-            ));
-            __builder.AddAttribute(13, "description", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+            );
+            __builder.AddAttribute(13, "description", 
 #nullable restore
 #line 66 "D:\Projects\C#\Bugger\BuggerUI\Features\Workcation\Workcation.razor"
                                         location.description
@@ -208,8 +173,8 @@ using DataAccessLibrary.Models;
 #line default
 #line hidden
 #nullable disable
-            ));
-            __builder.AddAttribute(14, "numberOfProperties", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Int32>(
+            );
+            __builder.AddAttribute(14, "numberOfProperties", 
 #nullable restore
 #line 67 "D:\Projects\C#\Bugger\BuggerUI\Features\Workcation\Workcation.razor"
                                                location.numberOfProperties
@@ -217,8 +182,9 @@ using DataAccessLibrary.Models;
 #line default
 #line hidden
 #nullable disable
-            ));
-            __builder.CloseComponent();
+            );
+            __builder.AddAttribute(15, "b-3x3e3cju4z");
+            __builder.CloseElement();
 #nullable restore
 #line 68 "D:\Projects\C#\Bugger\BuggerUI\Features\Workcation\Workcation.razor"
         }

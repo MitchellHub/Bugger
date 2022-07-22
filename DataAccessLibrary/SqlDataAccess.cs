@@ -46,27 +46,12 @@ namespace DataAccessLibrary
             }
         }
 
-        public async Task<IEnumerable<T>> LoadDataUsingStoredProcedure<T, U>(string storedProcedure, U parameters)
-        {
-            // 'using' enables garbage collection/shutting down the sql connection
-            using IDbConnection connection = CreateConnection();
-
-            return await connection.QueryAsync<T>(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
-        }
-
         public async Task SaveData<T>(string sql, T parameters)
         {
             using (IDbConnection connection = CreateConnection())
             {
                 await connection.ExecuteAsync(sql, parameters);
             }
-        }
-
-        public async Task SaveDataUsingStoredProcedure<T>(string storedProcedure, T parameters)
-        {
-            using IDbConnection connection = CreateConnection();
-
-            await connection.ExecuteAsync(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
         }
     }
 }
