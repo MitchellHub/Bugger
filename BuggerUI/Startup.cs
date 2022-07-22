@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -28,6 +29,9 @@ namespace BuggerUI
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+
+            // add default root directory
+            services.Configure<RazorPagesOptions>(options => options.RootDirectory = "/Features");
 
             // DataAccess services
             // Transient means we create an instance every time we ask for one

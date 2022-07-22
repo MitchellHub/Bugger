@@ -1,5 +1,6 @@
 ﻿using DataAccessLibrary.Models;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace DataAccessLibrary
@@ -23,11 +24,21 @@ namespace DataAccessLibrary
             return _db.LoadData<BugModel, dynamic>(sql, new { });
         }
 
-        public Task<BugModel> SelectBugByID(int id)
-        {
-            string sql = "SELECT * FROM dbo.Bug WHERE BugID = @id";
+        public Task<IEnumerable<BugModel>> spSelectAllBugs() => _db.LoadDataUsingStoredProcedure<BugModel, dynamic>("dbo.spBug_SelectAllBugs", new { });
 
-            return _db.LoadDataSingleOrDefault<BugModel, dynamic>(sql, new { id = id });
+
+        //public Task<BugModel> SelectBugByID(int id)
+        //{
+        //    string sql = "SELECT * FROM dbo.Bug WHERE BugID = @id";
+
+        //    return _db.LoadDataSingleOrDefault<BugModel, dynamic>(sql, new { id = id });
+        //}
+
+        public async Task<BugModel?> spSelect(int BugId)
+        {
+            var results = await _db.LoadDataUsingStoredProcedure<BugModel, dynamic>("dbo.spBug_Select", new { BugId = BugId });
+
+            return results.FirstOrDefault();
         }
 
         public Task InsertBug(BugModel bug)
@@ -37,5 +48,6 @@ namespace DataAccessLibrary
 
             return _db.SaveData(sql, bug);
         }
+
     }
 }

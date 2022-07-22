@@ -2,9 +2,9 @@
 {
     public class BugModel
     {
-        public int BugID { get; set; }
-        public int UserID { get; set; }
-        public int ProjectID { get; set; }
+        public int BugId { get; set; }
+        public int UserId { get; set; }
+        public int ProjectId { get; set; }
         public string BugTitle { get; set; }
         public string BugDescription { get; set; }
         public bool BugCompleted { get; set; }

@@ -1,0 +1,8 @@
+﻿@page "/project"
+@page "/project/{projectName}"
+
+<h3>@projectName</h3>
+
+@code {
+    [Parameter] public string? projectName { get; set; }
+}

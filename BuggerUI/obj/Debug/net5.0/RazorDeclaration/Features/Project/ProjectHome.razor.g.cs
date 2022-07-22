@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace BuggerUI.Components
+namespace BuggerUI.Features.Project
 {
     #line hidden
     using System;
@@ -84,40 +84,77 @@ using BuggerUI;
 #nullable disable
 #nullable restore
 #line 11 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
-using BuggerUI.Components;
+using BuggerUI.Pages;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 12 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
-using BuggerUI.Shared;
+using BuggerUI.Features;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 13 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
-using BuggerUI.Models;
+using BuggerUI.Features.Bug;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 14 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
-using DataAccessLibrary;
+using BuggerUI.Features.Bug.Components;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 15 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
+using BuggerUI.Features.Workcation;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 16 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
+using BuggerUI.Features.Workcation.Components;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 17 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
+using BuggerUI.Shared;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 18 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
+using BuggerUI.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 19 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
+using DataAccessLibrary;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 20 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
 using DataAccessLibrary.Models;
 
 #line default
 #line hidden
 #nullable disable
-    public partial class BugCard : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/project")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/project/{projectName}")]
+    public partial class ProjectHome : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -125,14 +162,9 @@ using DataAccessLibrary.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 14 "D:\Projects\C#\Bugger\BuggerUI\Components\BugCard.razor"
+#line 6 "D:\Projects\C#\Bugger\BuggerUI\Features\Project\ProjectHome.razor"
        
-    [Parameter] public int BugID { get; set; }
-    [Parameter] public int UserID { get; set; }
-    [Parameter] public int ProjectID { get; set; }
-    [Parameter] public string BugTitle { get; set; }
-    [Parameter] public string BugDescription { get; set; }
-    [Parameter] public bool BugCompleted { get; set; }
+    [Parameter] public string? projectName { get; set; }
 
 #line default
 #line hidden

@@ -30,10 +30,10 @@
                 <div class="grid gap-6">
                     @foreach (var item in bugs)
                     {
-                        <BugCard BugID="@item.BugID"
-                                 BugTitle="@item.BugTitle"
-                                 BugCompleted="@item.BugCompleted"
-                                 BugDescription="@item.BugDescription" />
+                        <BugCard BugID="@item.BugId"
+                         BugTitle="@item.BugTitle"
+                         BugCompleted="@item.BugCompleted"
+                         BugDescription="@item.BugDescription" />
                     }
                 </div>
             </div>
@@ -52,12 +52,11 @@
 
     private async Task InsertBugData()
     {
-        BugModel bug = new BugModel
-        {
-            BugTitle = newBug.BugTitle,
-            BugDescription = newBug.BugDescription,
-            BugCompleted = newBug.BugCompleted
-        };
+        BugModel bug = new BugModel {
+                BugTitle = newBug.BugTitle,
+                BugDescription = newBug.BugDescription,
+                BugCompleted = newBug.BugCompleted
+            };
 
         await _bugData.InsertBug(bug);
 
@@ -68,7 +67,7 @@
 
     private async Task GetBugs()
     {
-        IEnumerable<BugModel> bugsEnumerable = await _bugData.SelectAllBugs();
+        IEnumerable<BugModel> bugsEnumerable = await _bugData.spSelectAllBugs();
         bugs = bugsEnumerable.ToList();
     }
 }

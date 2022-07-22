@@ -84,34 +84,69 @@ using BuggerUI;
 #nullable disable
 #nullable restore
 #line 11 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
-using BuggerUI.Components;
+using BuggerUI.Pages;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 12 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
-using BuggerUI.Shared;
+using BuggerUI.Features;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 13 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
-using BuggerUI.Models;
+using BuggerUI.Features.Bug;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 14 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
-using DataAccessLibrary;
+using BuggerUI.Features.Bug.Components;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 15 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
+using BuggerUI.Features.Workcation;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 16 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
+using BuggerUI.Features.Workcation.Components;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 17 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
+using BuggerUI.Shared;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 18 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
+using BuggerUI.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 19 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
+using DataAccessLibrary;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 20 "D:\Projects\C#\Bugger\BuggerUI\_Imports.razor"
 using DataAccessLibrary.Models;
 
 #line default
@@ -128,21 +163,21 @@ using DataAccessLibrary.Models;
 #nullable restore
 #line 34 "D:\Projects\C#\Bugger\BuggerUI\Features\Bug\DIsplayBugByID.razor"
        
-    int bugID;
+    int bugId;
     private DisplayBugModel bug;
 
     private async Task SearchBug()
     {
-        Console.WriteLine("bugID: " + bugID);
-        BugModel dataBug = await _bugData.SelectBugByID(bugID);
+        Console.WriteLine("bugID: " + bugId);
+        BugModel dataBug = await _bugData.spSelect(bugId);
 
         if (dataBug != null)
         {
             bug = new DisplayBugModel {
-                BugTitle = dataBug.BugTitle,
-                BugDescription = dataBug.BugDescription,
-                BugCompleted = dataBug.BugCompleted
-            };
+                    BugTitle = dataBug.BugTitle,
+                    BugDescription = dataBug.BugDescription,
+                    BugCompleted = dataBug.BugCompleted
+                };
         }
         else
         {
